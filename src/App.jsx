@@ -1,6 +1,6 @@
 // src/App.jsx
 import React, { useState, useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom'; // <-- LÍNEA ELIMINADA
+import { AnimatePresence } from 'framer-motion';
 import Loader from './components/common/Loader';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
@@ -10,6 +10,7 @@ import HomeSection from './components/sections/HomeSection';
 import ApplicationsSection from './components/sections/ApplicationsSection';
 import CallToActionSection from './components/sections/CallToActionSection';
 import AnimatedSection from './components/common/AnimatedSection';
+import ParallaxVideoSection from './components/sections/ParallaxVideoSection'; // <-- NUEVA IMPORTACIÓN
 import './App.css';
 
 // ASSETS
@@ -20,13 +21,14 @@ import slide4_bg from './assets/images/contenedor_5.jpeg';
 import aboutImage from './assets/images/contenedor_8.jpg';
 import productsImage from './assets/images/contenedor_9.jpg';
 import processImage from './assets/images/contenedor_1.jpeg';
+import video_bg from './assets/videos/video_contenedor.mov'; // <-- RUTA AL VÍDEO
 
-// --- CORRECCIÓN: Eliminamos el tipo 'link' para que solo haya 'scroll' ---
+// --- Contenido actualizado para el carrusel y las secciones ---
 const slideData = [
-  { type: 'scroll', target: 'quienes-somos', background: slide1_bg, title: 'Soluciones a Medida', description: 'Ingeniería de vanguardia para los desafíos industriales más complejos.', buttonText: 'Explorar Empresa' },
-  { type: 'scroll', target: 'productos', background: slide2_bg, title: 'Productos Superiores', description: 'Descubra por qué nuestros tanques superan al acero en durabilidad y costo.', buttonText: 'Ver Productos' },
-  { type: 'scroll', target: 'procesos', background: slide3_bg, title: 'Fabricación de Precisión', description: 'Tecnología y experiencia que garantizan una fiabilidad total en cada pieza.', buttonText: 'Conocer Proceso' },
-  { type: 'scroll', target: 'contacto', background: slide4_bg, title: '¿Listo para un Proyecto?', description: 'Nuestro equipo de ingenieros está listo para diseñar su próxima solución.', buttonText: 'Contactar Ahora' },
+  { type: 'scroll', target: 'quienes-somos', background: slide1_bg, title: 'La Revolución del Almacenamiento', description: 'Ingeniería de materiales compuestos que redefine los estándares de eficiencia, seguridad y rentabilidad.', buttonText: 'Descubrir PRFV' },
+  { type: 'scroll', target: 'productos', background: slide2_bg, title: 'Inmunidad Absoluta a la Corrosión', description: 'Nuestros tanques son inherentemente resistentes a los químicos más agresivos, eliminando la principal causa de fallas.', buttonText: 'Ver Ventajas' },
+  { type: 'scroll', target: 'procesos', background: slide3_bg, title: 'Ingeniería de Precisión', description: 'Cada tanque es un sistema de ingeniería fabricado bajo la estricta norma ASTM D3299 para una fiabilidad total.', buttonText: 'Conocer Proceso' },
+  { type: 'scroll', target: 'contacto', background: slide4_bg, title: '¿Listo para un Proyecto?', description: 'Nuestro equipo está listo para diseñar su próxima solución de almacenamiento a medida.', buttonText: 'Contactar Ahora' },
 ];
 
 function AppContent() {
@@ -40,7 +42,6 @@ function AppContent() {
     }
   };
 
-  // --- CORRECCIÓN: La función ahora solo necesita hacer scroll ---
   const handleCarouselClick = (target) => {
     scrollToSection(target);
   };
@@ -55,19 +56,27 @@ function AppContent() {
           <AnimatedSection>
             <HomeSection
               id="quienes-somos"
-              title="Quiénes Somos"
-              subtitle="Líderes en la fabricación de soluciones de PRFV."
-              content="Nos dedicamos a ofrecer soluciones de almacenamiento que superan los límites de los materiales tradicionales..."
+              title="Líderes en Almacenamiento Industrial"
+              subtitle="Cambiamos las reglas del juego."
+              content="El PRFV no es un sustituto del acero; es una mejora fundamental. Ofrecemos soluciones de almacenamiento que eliminan la corrosión, el mantenimiento constante y los riesgos de seguridad, redefiniendo la eficiencia de la industria moderna."
               image={aboutImage}
+              linkTo="quienes-somos" // Para el futuro botón
             />
           </AnimatedSection>
+
+          {/* --- NUEVA SECCIÓN DE VÍDEO PARALLAX --- */}
+          <AnimatedSection>
+            <ParallaxVideoSection videoSrc={video_bg} />
+          </AnimatedSection>
+          
           <AnimatedSection>
             <HomeSection
               id="productos"
-              title="Productos de Alto Rendimiento"
-              subtitle="Inmunidad a la corrosión, vida útil extendida y cero mantenimiento."
-              content="Nuestros productos de PRFV eliminan los costos ocultos del acero..."
+              title="Superioridad Técnica Demostrada"
+              subtitle="Cero Corrosión. Cero Mantenimiento. Cero Preocupaciones."
+              content="Nuestros productos ofrecen una combinación inigualable de durabilidad extrema y un costo de ciclo de vida drásticamente inferior. La inversión inteligente que se paga sola."
               image={productsImage}
+              linkTo="productos"
               reverse={true}
             />
           </AnimatedSection>
@@ -77,10 +86,11 @@ function AppContent() {
           <AnimatedSection>
             <HomeSection
               id="procesos"
-              title="Proceso de Fabricación"
-              subtitle="Donde la tecnología y la experiencia se unen."
-              content="Utilizamos procesos de vanguardia como el Filament Winding..."
+              title="Excelencia en Ingeniería"
+              subtitle="No es solo un tanque, es un sistema de ingeniería de precisión."
+              content="Utilizamos procesos de vanguardia como el Filament Winding controlado por computadora y cumplimos rigurosamente con estándares como ASTM D3299 para garantizar una fiabilidad y seguridad absolutas en cada pieza."
               image={processImage}
+              linkTo="procesos"
             />
           </AnimatedSection>
           <CallToActionSection />
@@ -93,22 +103,14 @@ function AppContent() {
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isReady, setIsReady] = useState(false);
-
-  useEffect(() => {
-    if (!isLoading) {
-      document.body.classList.remove('loading');
-      const timer = setTimeout(() => setIsReady(true), 50);
-      return () => clearTimeout(timer);
-    } else {
-      document.body.classList.add('loading');
-    }
-  }, [isLoading]);
 
   return (
     <>
-      <Loader onLoaded={() => setIsLoading(false)} />
-      <div className={`app-wrapper ${isReady ? 'visible' : ''}`}>
+      <AnimatePresence>
+        {isLoading && <Loader onLoaded={() => setIsLoading(false)} />}
+      </AnimatePresence>
+      
+      <div className={`app-wrapper ${!isLoading ? 'visible' : ''}`}>
         <AppContent />
       </div>
     </>

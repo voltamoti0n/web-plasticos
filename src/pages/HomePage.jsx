@@ -1,6 +1,6 @@
 // src/pages/HomePage.jsx
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import FullScreenCarousel from '../components/sections/FullScreenCarousel';
 import HomeSection from '../components/sections/HomeSection';
 import ApplicationsSection from '../components/sections/ApplicationsSection';
@@ -24,7 +24,7 @@ const slideData = [
 ];
 
 function HomePage() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -37,11 +37,14 @@ function HomePage() {
   };
 
   const handleCarouselClick = (type, target) => {
+    // Se comenta el bloque que causa el error al no encontrar 'navigate'
+    /*
     if (type === 'link') {
       navigate(target);
     } else {
+    */
       scrollToSection(target);
-    }
+    // }
   };
 
   return (

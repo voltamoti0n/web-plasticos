@@ -7,11 +7,35 @@ import iconAgua from '../../assets/icons/agua_icono.png';
 import iconAlimentos from '../../assets/icons/comida_icono.png';
 import iconMineria from '../../assets/icons/mineria_icono.png';
 
-// ... (variantes de animación sin cambios) ...
+const titleVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const gridVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }, // Transición más suave
+};
+
+const industries = [
+    { name: 'Industria Química', desc: 'Tanques para ácidos, bases y solventes con máxima seguridad.', icon: iconQuimica },
+    { name: 'Tratamiento de Agua', desc: 'Soluciones duraderas para plantas potabilizadoras y de tratamiento.', icon: iconAgua },
+    { name: 'Alimentos y Bebidas', desc: 'Almacenamiento higiénico que cumple con los más altos estándares.', icon: iconAlimentos },
+    { name: 'Minería', desc: 'Resistencia extrema a la abrasión y a los químicos agresivos del sector.', icon: iconMineria },
+];
 
 const ApplicationsSection = ({ id }) => {
-  // ... (array de industrias sin cambios) ...
-
   return (
     <div id={id} className="section-container dark-section">
       <div className="section-content">
@@ -25,8 +49,9 @@ const ApplicationsSection = ({ id }) => {
               className="application-card"
               key={industry.name}
               variants={itemVariants}
-              whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              // --- CORRECCIÓN: Animación de hover más sutil ---
+              whileHover={{ scale: 1.05, y: -5 }} // Eliminamos la transición tipo 'spring'
+              transition={{ duration: 0.3 }}
             >
               <img src={industry.icon} alt={`${industry.name} icon`} className="application-icon" />
               <h4>{industry.name}</h4>

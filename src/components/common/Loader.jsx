@@ -1,28 +1,42 @@
-// src/components/common/Loader.jsx (Ejemplo, adapta a tu código)
+// src/components/common/Loader.jsx
 import React, { useEffect } from 'react';
-// import './Loader.css'; // Asegúrate de tener tu CSS
+import { motion } from 'framer-motion'; // Ya no se necesita AnimatePresence aquí
+import './Loader.css';
+import logo from '../../assets/images/logo.png';
 
 const Loader = ({ onLoaded }) => {
   useEffect(() => {
-    // Añadir clase al body cuando el loader se monta
-    document.body.classList.add('loading');
+    document.body.style.overflow = 'hidden';
     
-    // Simula un tiempo de carga y luego llama a onLoaded
     const timer = setTimeout(() => {
       onLoaded();
-      // Quita la clase del body cuando la carga termina
-      document.body.classList.remove('loading');
-    }, 1500); // Ajusta el tiempo si es necesario
+    }, 1500);
 
-    // Limpieza
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflow = 'unset';
+    };
   }, [onLoaded]);
 
   return (
-    <div className="loader-container">
-      {/* Tu animación de loader aquí */}
-      <img src="/path/to/your/logo.png" alt="Cargando..." />
-    </div>
+    // Ya no se necesita AnimatePresence aquí, solo el motion.div
+    <motion.div
+      className="loader-container"
+      initial={{ opacity: 1 }}
+      exit={{ opacity: 0 }} // Esta animación de salida ahora será gestionada por App.jsx
+      transition={{ duration: 0.5 }}
+    >
+      <div className="loader-curtain"></div>
+      <motion.div
+        className="loader-content"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+      >
+        <img src={logo} alt="Cargando..." className="loader-logo" />
+        <p className="loader-tagline">Ingeniería en Plásticos Reforzados</p>
+      </motion.div>
+    </motion.div>
   );
 };
 

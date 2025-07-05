@@ -42,13 +42,13 @@ const FullScreenCarousel = ({ slides, onButtonClick }) => {
               >
                 <h1>{currentSlide.title}</h1>
                 <p>{currentSlide.description}</p>
-                {/* El botón ahora siempre llama a onButtonClick, que es la función de scroll */}
                 <button onClick={() => onButtonClick(currentSlide.target)} className="slide-cta">
                   {currentSlide.buttonText}
                 </button>
               </motion.div>
             </AnimatePresence>
           </div>
+          {/* Navegación ahora está fuera de .carousel-content para un mejor posicionamiento */}
           <div className="carousel-navigation">
             <button onClick={handlePrev} className="nav-arrow" aria-label="Anterior"><Arrow direction="left" /></button>
             <button onClick={handleNext} className="nav-arrow" aria-label="Siguiente"><Arrow direction="right" /></button>

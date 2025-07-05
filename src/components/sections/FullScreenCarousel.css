@@ -45,19 +45,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 2rem 5rem; /* Aumentamos el padding lateral */
   color: var(--color-text-light);
 }
 
+/* --- CORRECCIÓN: Posicionamiento del contenido a la izquierda --- */
 .carousel-content {
-  text-align: center;
-  max-width: 800px;
+  text-align: left; /* Alineamos texto a la izquierda */
+  max-width: 550px;
+  width: 100%;
+  align-self: flex-start; /* Lo alineamos al inicio del contenedor flex */
+  margin-top: auto; /* Empujamos el contenido hacia abajo */
+  margin-bottom: 8rem;
 }
 
 .carousel-content h1 {
   font-family: var(--font-display);
-  /* Título ligeramente más pequeño para evitar superposición */
-  font-size: clamp(2.5rem, 7vw, 4.5rem); 
+  font-size: clamp(2.2rem, 6vw, 4rem); /* Ligeramente más pequeño */
   font-weight: 900;
   margin-bottom: 1rem;
   line-height: 1.1;
@@ -65,65 +69,69 @@
 }
 
 .carousel-content p {
-  font-size: clamp(1rem, 3vw, 1.2rem);
+  font-size: clamp(1rem, 2.5vw, 1.1rem); /* Ligeramente más pequeño */
   line-height: 1.7;
-  max-width: 600px;
-  margin: 0 auto 2.5rem auto;
+  max-width: 500px;
+  margin: 0 0 2rem 0; /* Ajustamos márgenes */
   opacity: 0.95;
   text-shadow: 0px 2px 10px rgba(0,0,0,0.5);
 }
 
-/* NUEVOS ESTILOS PARA BOTONES DEL CARRUSEL */
-
-/* Contenedor para el slide principal (centrado) */
-.carousel-content.main-slide {
-  text-align: center;
-}
-
-/* Contenedor para los slides secundarios (alineado abajo a la izquierda) */
-.carousel-content.secondary-slide {
-  position: absolute;
-  bottom: 8rem;
-  left: 5rem;
-  text-align: left;
-  max-width: 500px;
-}
-
-/* Estilo del botón (ahora unificado) */
+/* --- CORRECCIÓN: Nuevo estilo de botón, como en el vídeo --- */
 .slide-cta {
-  background-color: var(--color-primary-blue);
+  background-color: rgba(255, 255, 255, 0.1);
   color: var(--color-text-light);
-  border: 2px solid var(--color-primary-blue);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   padding: 0.8rem 2.5rem;
   font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 600;
   text-transform: uppercase;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 0px rgba(0, 160, 223, 0);
   text-decoration: none;
   display: inline-block;
-  margin-top: 1rem;
+  letter-spacing: 0.5px;
 }
 
 .slide-cta:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--color-text-light);
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 160, 223, 0.5);
+  box-shadow: 0 8px 25px rgba(0, 160, 223, 0.3); /* Sombra azul al pasar el cursor */
 }
 
-.carousel-content {
+/* --- CORRECCIÓN: Posicionamiento de flechas de navegación --- */
+.carousel-navigation {
   position: absolute;
-  bottom: 8rem;
-  left: 5rem;
-  text-align: left;
-  max-width: 550px;
+  bottom: 8.5rem;
+  right: 5rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 4;
 }
-/* ... (Estilos de .nav-arrow se mantienen) ... */
-.nav-arrow:hover {
+
+.nav-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.2);
   border-color: white;
   transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(0, 160, 223, 0.5); /* Efecto glow azul */
+  box-shadow: 0 0 15px rgba(0, 160, 223, 0.5);
 }

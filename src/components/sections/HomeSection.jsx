@@ -1,7 +1,6 @@
 // src/components/sections/HomeSection.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-// import { Link } from 'react-router-dom'; // <-- LÍNEA ELIMINADA. Esta era la causa del error.
 import './SectionStyles.css';
 
 const textVariants = {
@@ -14,7 +13,7 @@ const imageVariants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: 'easeOut' } },
 };
 
-const HomeSection = ({ id, title, subtitle, content, image, linkTo, linkText, reverse = false }) => {
+const HomeSection = ({ id, title, subtitle, content, image, linkTo, reverse = false }) => {
   return (
     <div id={id} className="section-container">
       <div className={`section-content split-layout ${reverse ? 'reverse' : ''}`}>
@@ -22,11 +21,10 @@ const HomeSection = ({ id, title, subtitle, content, image, linkTo, linkText, re
           <h2 className="section-title">{title}</h2>
           <p className="section-subtitle">{subtitle}</p>
           <div className="section-body">{content}</div>
-          {/* --- CORRECCIÓN: Se reemplaza <Link> por una etiqueta <a> normal --- */}
-          {/* Por ahora, este enlace no hará nada hasta que reinstalemos el router, pero no romperá la app. */}
+          {/* --- CORRECCIÓN: Botón minimalista para ver más detalles --- */}
           {linkTo && (
             <a href="#" className="section-cta-link" onClick={(e) => e.preventDefault()}>
-              {linkText || 'Saber Más'} →
+              Conocer Más →
             </a>
           )}
         </motion.div>

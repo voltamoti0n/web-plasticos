@@ -11,12 +11,18 @@ html {
   scroll-behavior: smooth;
 }
 
+/* --- CORRECCIÓN CRÍTICA Y DEFINITIVA --- */
+/* Aseguramos que la estructura base ocupe siempre toda la altura de la pantalla. */
+/* Esto resuelve el problema del 'body' con altura 0. */
+html, body, #root {
+  height: 100%;
+}
+/* ------------------------------------- */
+
 body {
   font-family: var(--font-body);
   color: var(--color-text-dark);
-  /* --- CORRECCIÓN CRÍTICA: El body debe ser transparente. --- */
-  /* El color de fondo se aplicará a los contenedores internos. */
-  background-color: transparent; 
+  background-color: var(--color-background-light); /* Damos un color de fondo base */
   line-height: 1.6;
 }
 
