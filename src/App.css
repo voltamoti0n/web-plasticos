@@ -4,7 +4,9 @@
 .app-wrapper {
   opacity: 0;
   transition: opacity 0.4s ease-in;
-  background-color: var(--color-primary-dark);
+  /* El color de fondo se controla ahora en el body o #root si es necesario, 
+     pero la estructura lo hace menos propenso a errores. */
+  background-color: transparent;
   min-height: 100vh;
 }
 
@@ -17,18 +19,15 @@
   margin-top: 100vh;
   position: relative;
   z-index: 2;
-  /* El fondo se hereda del .content-wrapper */
 }
 
 .content-wrapper {
   background-color: var(--color-background-light);
 }
 
-/* --- Layout de las Páginas Secundarias --- */
+/* Este estilo ya no es necesario aquí, se podría mover a un css de página si se usa routing */
 .page-content-wrapper {
   padding-top: 80px; 
   background-color: #ffffff;
-  min-height: calc(100vh - 80px); /* Ocupa al menos la altura de la ventana menos el header */
-  position: relative;
-  z-index: 5; /* Asegura que esté por encima de cualquier elemento fijo del home si hubiera un error de renderizado */
+  min-height: calc(100vh - 80px);
 }

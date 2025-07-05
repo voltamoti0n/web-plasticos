@@ -3,16 +3,13 @@ import React, { useState, useEffect } from 'react';
 import './Header.css';
 import logo from '../../assets/images/logo.png';
 
-// Volvemos a pasar la función de scroll como prop
 const Header = ({ onNavClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const show = window.scrollY > 50;
-      setIsScrolled(show);
+      setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -20,13 +17,12 @@ const Header = ({ onNavClick }) => {
   return (
     <header className={`main-header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
-        {/* El logo también hace scroll */}
-        <div className="logo-container" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+        <a href="/" className="logo-container" aria-label="Volver a la página de inicio">
           <img src={logo} alt="Plásticos Anticorrosivos Logo" className="logo" />
-        </div>
+        </a>
         <nav className="main-nav">
           <ul>
-            {/* Los links ahora usan la función de scroll */}
+            {/* Usamos <a> con onClick para el scroll suave */}
             <li><a onClick={() => onNavClick('quienes-somos')}>Quiénes Somos</a></li>
             <li><a onClick={() => onNavClick('productos')}>Productos</a></li>
             <li><a onClick={() => onNavClick('procesos')}>Procesos</a></li>

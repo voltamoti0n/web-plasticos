@@ -1,7 +1,7 @@
 // src/components/sections/HomeSection.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom'; // <-- LÍNEA ELIMINADA. Esta era la causa del error.
 import './SectionStyles.css';
 
 const textVariants = {
@@ -22,10 +22,12 @@ const HomeSection = ({ id, title, subtitle, content, image, linkTo, linkText, re
           <h2 className="section-title">{title}</h2>
           <p className="section-subtitle">{subtitle}</p>
           <div className="section-body">{content}</div>
+          {/* --- CORRECCIÓN: Se reemplaza <Link> por una etiqueta <a> normal --- */}
+          {/* Por ahora, este enlace no hará nada hasta que reinstalemos el router, pero no romperá la app. */}
           {linkTo && (
-            <Link to={linkTo} className="section-cta-link">
+            <a href="#" className="section-cta-link" onClick={(e) => e.preventDefault()}>
               {linkText || 'Saber Más'} →
-            </Link>
+            </a>
           )}
         </motion.div>
         <motion.div className="image-content" variants={imageVariants}>
