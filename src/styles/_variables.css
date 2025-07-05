@@ -1,0 +1,13 @@
+/* src/styles/_variables.css */
+:root {
+  /* Colores Corporativos */
+  --color-primary-blue: #00a0df;
+  --color-primary-dark: #36424a;
+  --color-text-light: #ffffff;
+  --color-text-dark: #333333;
+  --color-background-light: #f4f4f4;
+
+  /* Tipografías */
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-display: 'Montserrat', sans-serif; /* Usamos Montserrat regular, el 900 lo definimos donde se necesite */
+}

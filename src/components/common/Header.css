@@ -1,0 +1,84 @@
+/* src/components/common/Header.css */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 3rem;
+  z-index: 1000; /* Muy alto para estar siempre encima */
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+/* REQUERIMIENTO: Sombra y blur al hacer scroll */
+.main-header.scrolled {
+  background-color: rgba(26, 26, 26, 0.6); /* Un fondo más sólido para legibilidad */
+  backdrop-filter: blur(10px); /* Aumentamos el blur para un efecto más claro */
+  -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra sutil */
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  height: 40px;
+  cursor: pointer;
+}
+
+.logo {
+  height: 100%;
+  width: auto;
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.main-nav a {
+  color: var(--color-text-light);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary-blue);
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: var(--color-primary-blue);
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+/* ... al final de src/components/common/Header.css ... */
+
+.main-nav a.active-link {
+  color: var(--color-primary-blue);
+}
+
+.main-nav a.active-link::after {
+  width: 100%;
+}

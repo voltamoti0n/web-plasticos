@@ -1,0 +1,36 @@
+/* src/App.css */
+
+/* El #root será el contenedor que tenga el color de fondo para el loader */
+#root {
+  background-color: var(--color-primary-dark);
+  min-height: 100vh;
+}
+
+/* El wrapper que controla el fade-in */
+.app-wrapper {
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+}
+
+.app-wrapper.visible {
+  opacity: 1;
+}
+
+/* --- Layout del Home Page --- */
+.scroll-container {
+  margin-top: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+.content-wrapper {
+  /* Este ahora tiene un fondo claro, que se verá sobre el fondo oscuro del #root */
+  background-color: var(--color-background-light);
+}
+
+/* --- Layout de las Páginas Secundarias (para el futuro) --- */
+.page-content-wrapper {
+  padding-top: 80px; 
+  background-color: #fff;
+  min-height: 80vh;
+}
