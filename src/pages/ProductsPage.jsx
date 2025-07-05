@@ -13,10 +13,10 @@ function ProductsPage() {
       />
       <div className="static-content-wrapper">
         <p>Nuestra gama de productos está diseñada para ofrecer una alternativa superior al acero y otros materiales tradicionales. La principal ventaja de nuestros tanques y componentes de PRFV es su inmunidad total a la corrosión, lo que se traduce en una vida útil más larga, cero mantenimiento y una seguridad operativa inigualable. A continuación, se presenta una comparación directa que resalta los beneficios clave.</p>
-        
         <div className="comparison-table-wrapper" style={{ marginTop: '3rem' }}>
           <table className="comparison-table">
-            <thead>
+            {/* ... Contenido de la tabla ... */}
+             <thead>
               <tr>
                 <th>Característica</th>
                 <th>PRFV (Nuestra Solución)</th>

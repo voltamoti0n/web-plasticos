@@ -1,15 +1,11 @@
 /* src/App.css */
 
-/* El #root será el contenedor que tenga el color de fondo para el loader */
-#root {
-  background-color: var(--color-primary-dark);
-  min-height: 100vh;
-}
-
-/* El wrapper que controla el fade-in */
+/* Wrapper que controla el fade-in y el fondo de carga */
 .app-wrapper {
   opacity: 0;
   transition: opacity 0.4s ease-in;
+  background-color: var(--color-primary-dark);
+  min-height: 100vh;
 }
 
 .app-wrapper.visible {
@@ -21,16 +17,18 @@
   margin-top: 100vh;
   position: relative;
   z-index: 2;
+  /* El fondo se hereda del .content-wrapper */
 }
 
 .content-wrapper {
-  /* Este ahora tiene un fondo claro, que se verá sobre el fondo oscuro del #root */
   background-color: var(--color-background-light);
 }
 
-/* --- Layout de las Páginas Secundarias (para el futuro) --- */
+/* --- Layout de las Páginas Secundarias --- */
 .page-content-wrapper {
   padding-top: 80px; 
-  background-color: #fff;
-  min-height: 80vh;
+  background-color: #ffffff;
+  min-height: calc(100vh - 80px); /* Ocupa al menos la altura de la ventana menos el header */
+  position: relative;
+  z-index: 5; /* Asegura que esté por encima de cualquier elemento fijo del home si hubiera un error de renderizado */
 }

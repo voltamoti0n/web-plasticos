@@ -3,6 +3,7 @@ import React from 'react';
 import PageHeader from '../components/common/PageHeader';
 import './StaticPage.css';
 
+// Este componente ahora solo retorna el CONTENIDO específico de la página
 function AboutPage() {
   return (
     <>

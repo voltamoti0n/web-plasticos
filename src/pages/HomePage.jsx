@@ -45,19 +45,17 @@ function HomePage() {
   };
 
   return (
+    // No necesita <Header> o <Footer> aquí
     <>
-      {/* El carrusel es parte del contenido de la página de inicio */}
       <FullScreenCarousel slides={slideData} onButtonClick={handleCarouselClick} />
-
-      {/* El contenedor de scroll también es parte del contenido de esta página */}
-      <main className="scroll-container">
+      <div className="scroll-container">
         <div className="content-wrapper">
           <AnimatedSection>
             <HomeSection
               id="quienes-somos"
               title="Quiénes Somos"
               subtitle="Líderes en la fabricación de soluciones de PRFV."
-              content="Nos dedicamos a ofrecer soluciones de almacenamiento que superan los límites de los materiales tradicionales, combinando décadas de experiencia con un compromiso inquebrantable con la calidad y la norma ASTM D3299."
+              content="Nos dedicamos a ofrecer soluciones de almacenamiento que superan los límites de los materiales tradicionales..."
               image={aboutImage}
               linkTo="/quienes-somos"
             />
@@ -67,7 +65,7 @@ function HomePage() {
               id="productos"
               title="Productos de Alto Rendimiento"
               subtitle="Inmunidad a la corrosión, vida útil extendida y cero mantenimiento."
-              content="Nuestros productos de PRFV eliminan los costos ocultos del acero. Son hasta 75% más ligeros, reduciendo drásticamente los costos de instalación y cimentación, y garantizan décadas de operación sin preocupaciones."
+              content="Nuestros productos de PRFV eliminan los costos ocultos del acero..."
               image={productsImage}
               linkTo="/productos"
               reverse={true}
@@ -81,14 +79,14 @@ function HomePage() {
               id="procesos"
               title="Proceso de Fabricación"
               subtitle="Donde la tecnología y la experiencia se unen."
-              content="Utilizamos procesos de vanguardia como el Filament Winding y barreras anticorrosivas multi-capa para asegurar que cada tanque no solo cumpla, sino que exceda las expectativas de rendimiento y longevidad en los entornos más agresivos."
+              content="Utilizamos procesos de vanguardia como el Filament Winding..."
               image={processImage}
               linkTo="/procesos"
             />
           </AnimatedSection>
           <CallToActionSection />
         </div>
-      </main>
+      </div>
     </>
   );
 }
