@@ -9,7 +9,7 @@ import iconMineria from '../../assets/icons/mineria_icono.png';
 
 const titleVariants = {
   hidden: { opacity: 0, y: -20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
 };
 
 const gridVariants = {
@@ -17,15 +17,15 @@ const gridVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
+      staggerChildren: 0.15,
+      delayChildren: 0.4,
     },
   },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }, // Transición más suave
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
 
 const industries = [
@@ -37,20 +37,26 @@ const industries = [
 
 const ApplicationsSection = ({ id }) => {
   return (
-    <div id={id} className="section-container dark-section">
+    <motion.div
+      id={id}
+      className="section-container dark-section"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
       <div className="section-content">
         <motion.div className="text-content left-align" variants={titleVariants}>
-          <h2 className="section-title">Una Solución, Múltiples Industrias</h2>
+          <h2 className="section-title accent-blue">Una Solución, Múltiples Industrias</h2>
           <p className="section-subtitle">Nuestra tecnología de PRFV es la elección confiable para los sectores más exigentes.</p>
         </motion.div>
+        
         <motion.div className="applications-grid" variants={gridVariants}>
           {industries.map((industry) => (
             <motion.div
               className="application-card"
               key={industry.name}
               variants={itemVariants}
-              // --- CORRECCIÓN: Animación de hover más sutil ---
-              whileHover={{ scale: 1.05, y: -5 }} // Eliminamos la transición tipo 'spring'
+              whileHover={{ scale: 1.05, y: -5 }}
               transition={{ duration: 0.3 }}
             >
               <img src={industry.icon} alt={`${industry.name} icon`} className="application-icon" />
@@ -60,7 +66,7 @@ const ApplicationsSection = ({ id }) => {
           ))}
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -107,7 +107,7 @@
 /* --- CORRECCIÓN: Posicionamiento de flechas de navegación --- */
 .carousel-navigation {
   position: absolute;
-  bottom: 8.5rem;
+  bottom: 5rem;
   right: 5rem;
   display: flex;
   gap: 0.5rem;

@@ -38,7 +38,22 @@
   font-weight: 900;
   color: var(--color-primary-dark);
   margin-bottom: 0.5rem;
+  position: relative; /* Necesario para el pseudo-elemento */
+  padding-bottom: 1rem; /* Espacio para la línea */
 }
+
+/* --- NUEVO: Detalle azul sutil para los títulos de sección --- */
+.section-title.accent-blue::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px; /* Ancho de la línea */
+  height: 4px; /* Grosor de la línea */
+  background-color: var(--color-primary-blue);
+  border-radius: 2px;
+}
+
 
 .dark-section .section-title {
   color: var(--color-text-light);
@@ -169,7 +184,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  margin-top: 4rem; /* Espacio después del título y subtítulo */
+  margin-top: 4rem;
 }
 
 .application-card {
@@ -178,14 +193,23 @@
   border-radius: 8px;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s ease; /* Transición para el borde */
 }
 
-/* La animación de hover ahora se maneja con framer-motion en el componente */
+/* --- NUEVO: Efecto de borde y sombra en los recuadros --- */
+.application-card:hover {
+  border-color: var(--color-primary-blue);
+}
+
+.application-card:hover .application-icon {
+  filter: drop-shadow(0 0 8px var(--color-primary-blue));
+}
 
 .application-icon {
   width: 60px;
   height: 60px;
   margin-bottom: 1.5rem;
+  transition: filter 0.3s ease; /* Transición para la sombra del ícono */
 }
 
 .application-card h4 {
@@ -237,7 +261,6 @@
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-/* --- ESTILOS AÑADIDOS --- */
 .section-body {
   font-size: 1.1rem;
   line-height: 1.8;
@@ -257,7 +280,6 @@
 .section-cta-link:hover {
   transform: translateX(5px);
 }
-/* ------------------------ */
 
 @media (max-width: 900px) {
   .split-layout, .split-layout.reverse {
