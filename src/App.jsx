@@ -10,7 +10,8 @@ import HomeSection from './components/sections/HomeSection';
 import ApplicationsSection from './components/sections/ApplicationsSection';
 import CallToActionSection from './components/sections/CallToActionSection';
 import AnimatedSection from './components/common/AnimatedSection';
-import ParallaxVideoSection from './components/sections/ParallaxVideoSection'; // <-- NUEVA IMPORTACIÓN
+import ParallaxVideoSection from './components/sections/ParallaxVideoSection';
+import ModelSection from './components/sections/ModelSection';
 import './App.css';
 
 // ASSETS
@@ -19,9 +20,9 @@ import slide2_bg from './assets/images/contenedor_7.jpeg';
 import slide3_bg from './assets/images/contenedor_4.jpeg';
 import slide4_bg from './assets/images/contenedor_5.jpeg';
 import aboutImage from './assets/images/contenedor_8.jpg';
-import productsImage from './assets/images/contenedor_9.jpg';
+// productsImage ya no se usa aquí, se moverá o eliminará si es necesario.
 import processImage from './assets/images/contenedor_1.jpeg';
-import video_bg from './assets/videos/video_contenedor.mov'; // <-- RUTA AL VÍDEO
+import video_bg from './assets/videos/video_contenedor.mov';
 
 // --- Contenido actualizado para el carrusel y las secciones ---
 const slideData = [
@@ -53,6 +54,7 @@ function AppContent() {
       <ScrollToTop />
       <main className="scroll-container">
         <div className="content-wrapper">
+          {/* SECCIÓN 1: "Quiénes Somos" */}
           <AnimatedSection>
             <HomeSection
               id="quienes-somos"
@@ -60,29 +62,32 @@ function AppContent() {
               subtitle="Cambiamos las reglas del juego."
               content="El PRFV no es un sustituto del acero; es una mejora fundamental. Ofrecemos soluciones de almacenamiento que eliminan la corrosión, el mantenimiento constante y los riesgos de seguridad, redefiniendo la eficiencia de la industria moderna."
               image={aboutImage}
-              linkTo="quienes-somos" // Para el futuro botón
+              linkTo="quienes-somos"
             />
           </AnimatedSection>
-
-          {/* --- NUEVA SECCIÓN DE VÍDEO PARALLAX --- */}
+          
+          {/* SECCIÓN 2: Video Parallax */}
           <AnimatedSection>
             <ParallaxVideoSection videoSrc={video_bg} />
           </AnimatedSection>
           
+          {/* SECCIÓN 3: Modelo 3D con contenido fusionado */}
           <AnimatedSection>
-            <HomeSection
-              id="productos"
+            <ModelSection
+              id="productos" // Le asignamos el ID de productos para la navegación
               title="Superioridad Técnica Demostrada"
               subtitle="Cero Corrosión. Cero Mantenimiento. Cero Preocupaciones."
-              content="Nuestros productos ofrecen una combinación inigualable de durabilidad extrema y un costo de ciclo de vida drásticamente inferior. La inversión inteligente que se paga sola."
-              image={productsImage}
-              linkTo="productos"
-              reverse={true}
+              content="Nuestros productos ofrecen una combinación inigualable de durabilidad extrema y un costo de ciclo de vida drásticamente inferior. Interactúe con nuestro modelo y observe de cerca la calidad que define a la inversión inteligente que se paga sola."
+              reverse={true} // Hacemos que el modelo aparezca a la derecha
             />
           </AnimatedSection>
+          
+          {/* SECCIÓN 4: Aplicaciones */}
           <AnimatedSection>
             <ApplicationsSection id="aplicaciones" />
           </AnimatedSection>
+          
+          {/* SECCIÓN 5: Procesos */}
           <AnimatedSection>
             <HomeSection
               id="procesos"
@@ -93,6 +98,7 @@ function AppContent() {
               linkTo="procesos"
             />
           </AnimatedSection>
+          
           <CallToActionSection />
         </div>
       </main>

@@ -1,0 +1,31 @@
+/* src/components/common/ModelViewer.css */
+.interaction-prompt {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 16px;
+  background-color: rgba(26, 26, 26, 0.7); /* Ligeramente más opaco */
+  backdrop-filter: blur(4px);
+  color: white;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 10;
+
+  /* --- NUEVO: Para alinear el icono y el texto --- */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.interaction-prompt.hidden {
+  opacity: 0;
+}
