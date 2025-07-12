@@ -3,9 +3,9 @@ import React from 'react';
 import Header from '../components/common/Header'; // Importamos Header aquí
 import AnimatedSection from '../components/common/AnimatedSection';
 import './StaticPage.css';
-import filamentWinding from/src/assets/images/contenedor_7.jpeg';
-import linerImage from/src/assets/images/contenedor_4.jpeg';
-import headerBg from/src/assets/images/contenedor_4.jpeg';
+import filamentWinding from '/src/assets/images/contenedor_7.jpeg';
+import linerImage from '/src/assets/images/contenedor_4.jpeg';
+import headerBg from '/src/assets/images/contenedor_4.jpeg';
 
 function ProcessPage() {
   return (

@@ -4,7 +4,7 @@ import Header from '../components/common/Header'; // Importamos Header aquí
 import AnimatedSection from '../components/common/AnimatedSection';
 import '../components/sections/SectionStyles.css';
 import './StaticPage.css';
-import headerBg from/src/assets/images/contenedor_7.jpeg';
+import headerBg from '/src/assets/images/contenedor_7.jpeg';
 
 function ProductsPage() {
   return (

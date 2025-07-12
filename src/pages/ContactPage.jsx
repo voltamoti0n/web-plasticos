@@ -3,7 +3,7 @@ import React from 'react';
 import Header from '../components/common/Header'; // Importamos Header aquí
 import AnimatedSection from '../components/common/AnimatedSection';
 import './ContactPage.css';
-import headerBg from/src/assets/images/contenedor_5.jpeg';
+import headerBg from '/src/assets/images/contenedor_5.jpeg';
 
 function ContactPage() {
   const handleSubmit = (e) => {
