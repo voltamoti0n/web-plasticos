@@ -1,7 +1,7 @@
 // src/components/common/Footer.jsx
 import React from 'react';
 import './Footer.css';
-import logo from '../../assets/images/logo.png';
+import logo from '..//src/assets/images/logo.png';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();

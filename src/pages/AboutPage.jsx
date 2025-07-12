@@ -4,8 +4,8 @@ import Header from '../components/common/Header'; // Importamos Header aquí
 import AnimatedSection from '../components/common/AnimatedSection';
 import HomeSection from '../components/sections/HomeSection';
 import './StaticPage.css';
-import newImage from '../assets/images/contenedor_6.jpeg';
-import headerBg from '../assets/images/contenedor_2.jpeg';
+import newImage from '/src/assets/images/contenedor_6.jpeg';
+import headerBg from '/src/assets/images/contenedor_2.jpeg';
 
 function AboutPage() {
   return (

@@ -2,10 +2,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './SectionStyles.css';
-import iconQuimica from '../../assets/icons/quimica_icono.png';
-import iconAgua from '../../assets/icons/agua_icono.png';
-import iconAlimentos from '../../assets/icons/comida_icono.png';
-import iconMineria from '../../assets/icons/mineria_icono.png';
+import iconQuimica from '..//src/assets/icons/quimica_icono.png';
+import iconAgua from '..//src/assets/icons/agua_icono.png';
+import iconAlimentos from '..//src/assets/icons/comida_icono.png';
+import iconMineria from '..//src/assets/icons/mineria_icono.png';
 
 const titleVariants = {
   hidden: { opacity: 0, y: -20 },
