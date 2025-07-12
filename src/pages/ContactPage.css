@@ -1,17 +1,18 @@
 /* src/pages/ContactPage.css */
 .contact-content-wrapper {
   max-width: 1200px;
-  margin: 4rem auto;
-  padding: 0 3rem;
+  margin: 0 auto;
+  padding: 4rem 2rem 6rem;
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  gap: 4rem;
-  align-items: start;
+  gap: 5rem;
+  align-items: flex-start;
 }
 
-.contact-details h3 {
+.contact-details h3, .contact-form-container h3 {
   font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: 700;
   margin-bottom: 1.5rem;
   color: var(--color-primary-dark);
 }
@@ -19,20 +20,19 @@
 .contact-details p {
   font-size: 1.1rem;
   line-height: 1.8;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+.contact-details a {
+  color: var(--color-primary-blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 
 .contact-form-container {
-  background-color: #f7f9fc;
+  background-color: #ffffff;
   padding: 3rem;
-  border-radius: 8px;
-}
-
-.contact-form-container h3 {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  color: var(--color-primary-dark);
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
 }
 
 .form-group {
@@ -44,38 +44,51 @@
   margin-bottom: 0.5rem;
   font-weight: 600;
   font-size: 0.9rem;
+  color: #555;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.8rem 1rem;
+  padding: 0.9rem 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 1rem;
   font-family: var(--font-body);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary-blue);
+  box-shadow: 0 0 0 3px rgba(0, 160, 223, 0.2);
 }
 
 .form-submit-button {
   background-color: var(--color-primary-blue);
   color: #fff;
   border: none;
-  padding: 1rem 2rem;
+  padding: 1rem 2.5rem;
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
 }
 
 .form-submit-button:hover {
-  background-color: #005b8a;
+  background-color: #008fbf;
   transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 160, 223, 0.3);
 }
 
 @media (max-width: 900px) {
   .contact-content-wrapper {
     grid-template-columns: 1fr;
+    gap: 4rem;
   }
 }

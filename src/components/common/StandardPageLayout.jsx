@@ -1,18 +1,25 @@
 // src/components/common/StandardPageLayout.jsx
-import React from 'react';
-// import { Outlet } from 'react-router-dom';
-import Header from './Header';
+import React, { useEffect } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
-import ScrollToTopPage from './ScrollToTopPage';
+// Ya no necesitamos importar Header aquí
+
+const ScrollToTopPage = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 function StandardPageLayout() {
   return (
-    <div className="page-wrapper visible"> {/* Hacemos visible al instante */}
+    <div className="page-wrapper">
       <ScrollToTopPage />
-      <Header />
-      <main className="page-content-wrapper">
-        {/* <Outlet /> */} {/* El contenido de cada página (About, Products, etc.) se insertará aquí */}
+      {/* El Header ahora será responsabilidad de cada página */}
+      <main>
+        <Outlet />
       </main>
       <Footer />
       <ScrollToTop />

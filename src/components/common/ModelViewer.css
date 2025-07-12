@@ -1,31 +1,51 @@
 /* src/components/common/ModelViewer.css */
+
+/* --- Keyframes para la animación del icono --- */
+@keyframes pulse-drag-icon {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(-6px);
+    opacity: 1;
+  }
+}
+
 .interaction-prompt {
   position: absolute;
-  bottom: 20px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 8px 16px;
-  background-color: rgba(26, 26, 26, 0.7); /* Ligeramente más opaco */
-  backdrop-filter: blur(4px);
+  padding: 12px 22px; /* Ligeramente más grande */
+  background-color: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   color: white;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px; /* Más espaciado para legibilidad */
   pointer-events: none;
   opacity: 1;
-  transition: opacity 0.5s ease-in-out;
-  z-index: 10;
+  transition: opacity 1s ease-in-out; /* Transición de salida más lenta */
+  z-index: 100; /* Un z-index alto para asegurar que esté al frente */
 
-  /* --- NUEVO: Para alinear el icono y el texto --- */
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
 }
 
 .interaction-prompt.hidden {
   opacity: 0;
+}
+
+/* Aplicamos la animación al icono SVG */
+.interaction-prompt .drag-icon {
+  animation: pulse-drag-icon 2.5s ease-in-out infinite;
+  margin-right: 12px; /* Más espacio entre el icono y el texto */
 }

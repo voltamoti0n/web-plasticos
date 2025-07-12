@@ -1,11 +1,8 @@
 /* src/App.css */
 
-/* Wrapper que controla el fade-in y el fondo de carga */
 .app-wrapper {
   opacity: 0;
   transition: opacity 0.4s ease-in;
-  /* El color de fondo se controla ahora en el body o #root si es necesario, 
-     pero la estructura lo hace menos propenso a errores. */
   background-color: transparent;
   min-height: 100vh;
 }
@@ -14,7 +11,6 @@
   opacity: 1;
 }
 
-/* --- Layout del Home Page --- */
 .scroll-container {
   margin-top: 100vh;
   position: relative;
@@ -25,9 +21,14 @@
   background-color: var(--color-background-light);
 }
 
-/* Este estilo ya no es necesario aquí, se podría mover a un css de página si se usa routing */
-.page-content-wrapper {
-  padding-top: 80px; 
-  background-color: #ffffff;
-  min-height: calc(100vh - 80px);
+/* --- NUEVOS ESTILOS PARA PÁGINAS INTERNAS --- */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-background-light);
+}
+
+.page-wrapper main {
+  flex-grow: 1; /* Asegura que el main ocupe el espacio disponible */
 }

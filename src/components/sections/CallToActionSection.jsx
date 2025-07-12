@@ -1,6 +1,7 @@
 // src/components/sections/CallToActionSection.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom'; // <-- IMPORTAR useNavigate
 import './SectionStyles.css';
 
 const ctaVariants = {
@@ -9,6 +10,12 @@ const ctaVariants = {
 };
 
 const CallToActionSection = () => {
+  const navigate = useNavigate(); // Hook para navegar
+
+  const handleCtaClick = () => {
+    navigate('/contacto'); // Navega a la página de contacto
+  };
+
   return (
     <motion.div 
       className="section-container cta-section"
@@ -22,7 +29,7 @@ const CallToActionSection = () => {
         <p className="section-subtitle cta-subtitle">
           Contáctenos para un análisis detallado y una cotización personalizada. Nuestro equipo de ingenieros está listo para diseñar la solución perfecta para sus necesidades.
         </p>
-        <button className="cta-button" onClick={() => window.location.href = 'mailto:ventas@plasticosanticorrosivos.com'}>
+        <button className="cta-button" onClick={handleCtaClick}>
           Solicitar Cotización
         </button>
       </div>

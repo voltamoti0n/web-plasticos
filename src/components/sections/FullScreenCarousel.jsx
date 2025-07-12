@@ -42,7 +42,7 @@ const FullScreenCarousel = ({ slides, onButtonClick }) => {
               >
                 <h1>{currentSlide.title}</h1>
                 <p>{currentSlide.description}</p>
-                <button onClick={() => onButtonClick(currentSlide.target)} className="slide-cta">
+                <button onClick={() => onButtonClick(currentSlide.type, currentSlide.target)} className="slide-cta">
                   {currentSlide.buttonText}
                 </button>
               </motion.div>

@@ -3,22 +3,31 @@ import React from 'react';
 import './Footer.css';
 import logo from '../../assets/images/logo.png';
 
-const Footer = ({ onNavClick }) => {
+const Footer = () => {
     const currentYear = new Date().getFullYear();
+    
+    const footerLinks = [
+        { path: '/quienes-somos', name: 'Quiénes Somos' },
+        { path: '/productos', name: 'Productos' },
+        { path: '/procesos', name: 'Procesos' },
+        { path: '/contacto', name: 'Contacto' },
+    ];
+
     return (
-        // --- CORRECCIÓN: El ID se aplica directamente al footer ---
-        <footer id="contacto" className="main-footer-container">
+        <footer id="footer" className="main-footer-container">
             <div className="footer-content">
                 <div className="footer-logo-info">
-                    <img src={logo} alt="Plásticos Anticorrosivos Logo" className="footer-logo" />
-                    <p>Todo en fibra de vidrio.</p>
+                    <a href="/"><img src={logo} alt="Plásticos Anticorrosivos Logo" className="footer-logo" /></a>
+                    <p>Ingeniería de materiales compuestos para la industria moderna.</p>
                 </div>
                 <div className="footer-links">
                     <h4>Navegación</h4>
                     <ul>
-                        <li><a onClick={() => onNavClick('sectores')}>Sectores</a></li>
-                        <li><a onClick={() => onNavClick('productos')}>Productos</a></li>
-                        <li><a onClick={() => onNavClick('beneficios')}>Beneficios</a></li>
+                        {footerLinks.map(link => (
+                            <li key={link.path}>
+                                <a href={link.path}>{link.name}</a>
+                            </li>
+                        ))}
                     </ul>
                 </div>
                 <div className="footer-contact">

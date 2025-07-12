@@ -1,6 +1,7 @@
 // src/components/sections/HomeSection.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'; // <-- IMPORTAR Link
 import './SectionStyles.css';
 
 const textVariants = {
@@ -21,11 +22,11 @@ const HomeSection = ({ id, title, subtitle, content, image, linkTo, reverse = fa
           <h2 className="section-title">{title}</h2>
           <p className="section-subtitle">{subtitle}</p>
           <div className="section-body">{content}</div>
-          {/* --- CORRECCIÓN: Botón minimalista para ver más detalles --- */}
           {linkTo && (
-            <a href="#" className="section-cta-link" onClick={(e) => e.preventDefault()}>
+            // Usamos el componente Link en lugar de <a>
+            <Link to={linkTo} className="section-cta-link">
               Conocer Más →
-            </a>
+            </Link>
           )}
         </motion.div>
         <motion.div className="image-content" variants={imageVariants}>

@@ -9,7 +9,6 @@ const textVariants = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } },
 };
 
-// --- Variante para el texto en el lado opuesto ---
 const textVariantsReverse = {
     hidden: { opacity: 0, x: 50 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } },
@@ -33,7 +32,7 @@ const ModelSection = ({ id, title, subtitle, content, reverse = false }) => {
           <div className="section-body">{content}</div>
         </motion.div>
         
-        {/* CORRECCIÓN: Añadimos position: relative al contenedor del modelo */}
+        {/* Este contenedor es crucial para el posicionamiento y la animación */}
         <motion.div 
           className="model-content" 
           variants={modelVariants} 
