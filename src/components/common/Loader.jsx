@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion'; // Ya no se necesita AnimatePresence aquí
 import './Loader.css';
-import logo from '/src/assets/images/logo.png';
+//import logo from '/src/assets/images/logo.png';
 
 const Loader = ({ onLoaded }) => {
   useEffect(() => {
