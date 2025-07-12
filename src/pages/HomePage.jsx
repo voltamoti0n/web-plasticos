@@ -14,12 +14,12 @@ import ModelSection from '../components/sections/ModelSection'; // <-- Aseguramo
 import StatsSection from '../components/sections/StatsSection';
 
 // ASSETS
-import slide1_bg from '/src/assets/images/contenedor_2.jpeg';
-import slide2_bg from '/src/assets/images/contenedor_7.jpeg';
-import slide3_bg from '/src/assets/images/contenedor_4.jpeg';
-import slide4_bg from '/src/assets/images/contenedor_5.jpeg';
-import processImage from '/src/assets/images/contenedor_1.jpeg';
-import video_bg from '/src/assets/videos/video_contenedor.mov';
+import slide1_bg from/src/assets/images/contenedor_2.jpeg';
+import slide2_bg from/src/assets/images/contenedor_7.jpeg';
+import slide3_bg from/src/assets/images/contenedor_4.jpeg';
+import slide4_bg from/src/assets/images/contenedor_5.jpeg';
+import processImage from/src/assets/images/contenedor_1.jpeg';
+import video_bg from/src/assets/videos/video_contenedor.mov';
 
 const slideData = [
   { type: 'scroll', target: 'quienes-somos-home', background: slide1_bg, title: 'La Revolución del Almacenamiento', description: 'Ingeniería de materiales compuestos que redefine los estándares de eficiencia, seguridad y rentabilidad.', buttonText: 'Descubrir PRFV' },
